@@ -85,11 +85,11 @@ user_pref("_user.js.parrot", "0100 syntax error: the parrot's dead!");
  * 0=blank, 1=home, 2=last visited page, 3=resume previous session
  * [NOTE] Session Restore is cleared with history (2811+), and not used in Private Browsing mode
  * [SETTING] General>Startup>Restore previous session ***/
-user_pref("browser.startup.page", 0);
+user_pref("browser.startup.page", 1);
 /* 0103: set HOME+NEWWINDOW page
  * about:home=Firefox Home (default, see 0105), custom URL, about:blank
  * [SETTING] Home>New Windows and Tabs>Homepage and new windows ***/
-user_pref("browser.startup.homepage", "about:blank");
+// user_pref("browser.startup.homepage", "about:blank");
 /* 0104: set NEWTAB page
  * true=Firefox Home (default, see 0105), false=blank page
  * [SETTING] Home>New Windows and Tabs>New tabs ***/
@@ -152,8 +152,8 @@ user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false); // [DEFAU
 /** OTHER ***/
 /* 0360: disable Captive Portal detection
  * [1] https://www.eff.org/deeplinks/2017/08/how-captive-portals-interfere-wireless-security-and-privacy ***/
-user_pref("captivedetect.canonicalURL", "");
-user_pref("network.captive-portal-service.enabled", false); // [FF52+]
+// user_pref("captivedetect.canonicalURL", "");
+// user_pref("network.captive-portal-service.enabled", false); // [FF52+]
 /* 0361: disable Network Connectivity checks [FF65+]
  * [1] https://bugzilla.mozilla.org/1460537 ***/
 user_pref("network.connectivity-service.enabled", false);
@@ -215,7 +215,7 @@ user_pref("network.http.speculative-parallel-limit", 0);
 user_pref("browser.places.speculativeConnect.enabled", false);
 /* 0610: enforce no "Hyperlink Auditing" (click tracking)
  * [1] https://www.bleepingcomputer.com/news/software/major-browsers-to-prevent-disabling-of-click-tracking-privacy-risk/ ***/
-   // user_pref("browser.send_pings", false); // [DEFAULT: false]
+user_pref("browser.send_pings", false); // [DEFAULT: false]
 
 /*** [SECTION 0700]: DNS / DoH / PROXY / SOCKS ***/
 user_pref("_user.js.parrot", "0700 syntax error: the parrot's given up the ghost!");
@@ -278,8 +278,8 @@ user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false); // [FF92+]
  * [NOTE] Both must be true for live search to work in the location bar
  * [SETUP-CHROME] Override these if you trust and use a privacy respecting search engine
  * [SETTING] Search>Show search suggestions | Show search suggestions in address bar results ***/
-user_pref("browser.search.suggest.enabled", false);
-user_pref("browser.urlbar.suggest.searches", false);
+// user_pref("browser.search.suggest.enabled", false);
+// user_pref("browser.urlbar.suggest.searches", false);
 /* 0805: disable urlbar trending search suggestions [FF118+]
  * [SETTING] Search>Search Suggestions>Show trending search suggestions (FF119) ***/
 user_pref("browser.urlbar.trending.featureGate", false);
@@ -335,20 +335,20 @@ user_pref("_user.js.parrot", "0900 syntax error: the parrot's expired!");
  * [2] https://homes.esat.kuleuven.be/~asenol/leaky-forms/ ***/
 user_pref("signon.autofillForms", false);
 /* 0904: disable formless login capture for Password Manager [FF51+] ***/
-user_pref("signon.formlessCapture.enabled", false);
+// user_pref("signon.formlessCapture.enabled", false);
 /* 0905: limit (or disable) HTTP authentication credentials dialogs triggered by sub-resources [FF41+]
  * hardens against potential credentials phishing
  * 0 = don't allow sub-resources to open HTTP authentication credentials dialogs
  * 1 = don't allow cross-origin sub-resources to open HTTP authentication credentials dialogs
  * 2 = allow sub-resources to open HTTP authentication credentials dialogs (default) ***/
-user_pref("network.auth.subresource-http-auth-allow", 1);
+user_pref("network.auth.subresource-http-auth-allow", 0);
 /* 0906: enforce no automatic authentication on Microsoft sites [FF91+] [WINDOWS 10+]
  * [SETTING] Privacy & Security>Logins and Passwords>Allow Windows single sign-on for...
  * [1] https://support.mozilla.org/kb/windows-sso ***/
-   // user_pref("network.http.windows-sso.enabled", false); // [DEFAULT: false]
+    user_pref("network.http.windows-sso.enabled", false); // [DEFAULT: false]
 /* 0907: enforce no automatic authentication on Microsoft sites [FF131+] [MAC]
  * On macOS, SSO only works on corporate devices ***/
-   // user_pref("network.http.microsoft-entra-sso.enabled", false); // [DEFAULT: false]
+    user_pref("network.http.microsoft-entra-sso.enabled", false); // [DEFAULT: false]
 
 /*** [SECTION 1000]: DISK AVOIDANCE ***/
 user_pref("_user.js.parrot", "1000 syntax error: the parrot's gone to meet 'is maker!");
@@ -629,11 +629,11 @@ user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 /** SANITIZE ON SHUTDOWN: IGNORES "ALLOW" SITE EXCEPTIONS ***/
 /* 2811: set/enforce clearOnShutdown items (if 2810 is true) [SETUP-CHROME] [FF128+] ***/
 user_pref("privacy.clearOnShutdown_v2.cache", true); // [DEFAULT: true]
-user_pref("privacy.clearOnShutdown_v2.historyFormDataAndDownloads", true); // [DEFAULT: true]
+// user_pref("privacy.clearOnShutdown_v2.historyFormDataAndDownloads", true); // [DEFAULT: true]
    // user_pref("privacy.clearOnShutdown_v2.siteSettings", false); // [DEFAULT: false]
 /* 2812: set/enforce clearOnShutdown items [FF136+] ***/
-user_pref("privacy.clearOnShutdown_v2.browsingHistoryAndDownloads", true); // [DEFAULT: true]
-user_pref("privacy.clearOnShutdown_v2.downloads", true);
+// user_pref("privacy.clearOnShutdown_v2.browsingHistoryAndDownloads", true); // [DEFAULT: true]
+// user_pref("privacy.clearOnShutdown_v2.downloads", true);
 user_pref("privacy.clearOnShutdown_v2.formdata", true);
 /* 2813: set Session Restore to clear on shutdown (if 2810 is true) [FF34+]
  * [NOTE] Not needed if Session Restore is not used (0102) or it is already cleared with history (2811+)
@@ -655,23 +655,23 @@ user_pref("privacy.clearOnShutdown_v2.cookiesAndStorage", true);
  * [SETTING] Privacy & Security>Browser Privacy>Cookies and Site Data>Clear Data ***/
 user_pref("privacy.clearSiteData.cache", true);
 user_pref("privacy.clearSiteData.cookiesAndStorage", false); // keep false until it respects "allow" site exceptions
-user_pref("privacy.clearSiteData.historyFormDataAndDownloads", true);
+// user_pref("privacy.clearSiteData.historyFormDataAndDownloads", true);
    // user_pref("privacy.clearSiteData.siteSettings", false);
 /* 2821: set manual "Clear Data" items [FF136+] ***/
-user_pref("privacy.clearSiteData.browsingHistoryAndDownloads", true);
+// user_pref("privacy.clearSiteData.browsingHistoryAndDownloads", true);
 user_pref("privacy.clearSiteData.formdata", true);
 
 /** SANITIZE HISTORY: IGNORES "ALLOW" SITE EXCEPTIONS ***/
 /* 2830: set manual "Clear History" items, also via Ctrl-Shift-Del [SETUP-CHROME] [FF128+]
  * Firefox remembers your last choices. This will reset them when you start Firefox
  * [SETTING] Privacy & Security>History>Custom Settings>Clear History ***/
-user_pref("privacy.clearHistory.cache", true); // [DEFAULT: true]
-user_pref("privacy.clearHistory.cookiesAndStorage", false);
-user_pref("privacy.clearHistory.historyFormDataAndDownloads", true); // [DEFAULT: true]
+// user_pref("privacy.clearHistory.cache", true); // [DEFAULT: true]
+// user_pref("privacy.clearHistory.cookiesAndStorage", false);
+// user_pref("privacy.clearHistory.historyFormDataAndDownloads", true); // [DEFAULT: true]
    // user_pref("privacy.clearHistory.siteSettings", false); // [DEFAULT: false]
 /* 2831: set manual "Clear History" items [FF136+] ***/
-user_pref("privacy.clearHistory.browsingHistoryAndDownloads", true); // [DEFAULT: true]
-user_pref("privacy.clearHistory.formdata", true);
+// user_pref("privacy.clearHistory.browsingHistoryAndDownloads", true); // [DEFAULT: true]
+// user_pref("privacy.clearHistory.formdata", true);
 
 /** SANITIZE MANUAL: TIMERANGE ***/
 /* 2840: set "Time range to clear" for "Clear Data" (2820+) and "Clear History" (2830+)
@@ -856,7 +856,7 @@ user_pref("_user.js.parrot", "5000 syntax error: the parrot's taken 'is last bow
 /* 5003: disable saving passwords
  * [NOTE] This does not clear any passwords already saved
  * [SETTING] Privacy & Security>Logins and Passwords>Ask to save logins and passwords for websites ***/
-   // user_pref("signon.rememberSignons", false);
+   user_pref("signon.rememberSignons", false);
 /* 5004: disable permissions manager from writing to disk [FF41+] [RESTART]
  * [NOTE] This means any permission changes are session only
  * [1] https://bugzilla.mozilla.org/967812 ***/
@@ -884,7 +884,7 @@ user_pref("_user.js.parrot", "5000 syntax error: the parrot's taken 'is last bow
  * [SETTING] Search>Address Bar>When using the address bar, suggest ***/
    // user_pref("browser.urlbar.suggest.history", false);
    // user_pref("browser.urlbar.suggest.bookmark", false);
-   // user_pref("browser.urlbar.suggest.openpage", false);
+   user_pref("browser.urlbar.suggest.openpage", false);
    // user_pref("browser.urlbar.suggest.topsites", false); // [FF78+]
 /* 5011: disable location bar dropdown
  * This value controls the total number of entries to appear in the location bar dropdown ***/
@@ -910,8 +910,8 @@ user_pref("_user.js.parrot", "5000 syntax error: the parrot's taken 'is last bow
  * is "detect" (default), then the UI will show. Stored data is not secure, uses JSON
  * [SETTING] Privacy & Security>Forms and Autofill>Autofill addresses
  * [1] https://wiki.mozilla.org/Firefox/Features/Form_Autofill ***/
-   // user_pref("extensions.formautofill.addresses.enabled", false); // [FF55+]
-   // user_pref("extensions.formautofill.creditCards.enabled", false); // [FF56+]
+   user_pref("extensions.formautofill.addresses.enabled", false); // [FF55+]
+   user_pref("extensions.formautofill.creditCards.enabled", false); // [FF56+]
 /* 5018: limit events that can cause a pop-up ***/
    // user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
 /* 5019: disable page thumbnail collection ***/
@@ -1229,11 +1229,11 @@ user_pref("_user.js.parrot", "9000 syntax error: the parrot's cashed in 'is chip
 /* 9001: disable welcome notices ***/
 user_pref("browser.startup.homepage_override.mstone", "ignore"); // [HIDDEN PREF]
 /* 9002: disable General>Browsing>Recommend extensions/features as you browse [FF67+] ***/
-user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
-user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
+// user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
+// user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 /* 9004: disable search terms [FF110+]
  * [SETTING] Search>Search Bar>Use the address bar for search and navigation>Show search terms instead of URL... ***/
-user_pref("browser.urlbar.showSearchTerms.enabled", false);
+// user_pref("browser.urlbar.showSearchTerms.enabled", false);
 
 /*** [SECTION 9999]: DEPRECATED / RENAMED ***/
 user_pref("_user.js.parrot", "9999 syntax error: the parrot's shuffled off 'is mortal coil!");
