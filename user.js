@@ -576,7 +576,7 @@ user_pref("browser.contentanalysis.default_result", 0); // [FF127+] [DEFAULT: 0]
 /* 2651: enable user interaction for security by always asking where to download
  * [SETUP-CHROME] On Android this blocks longtapping and saving images
  * [SETTING] General>Downloads>Always ask you where to save files ***/
-user_pref("browser.download.useDownloadDir", false);
+// user_pref("browser.download.useDownloadDir", false);
 /* 2652: disable downloads panel opening on every download [FF96+] ***/
 user_pref("browser.download.alwaysOpenPanel", false);
 /* 2653: disable adding downloads to the system's "recent documents" list ***/
